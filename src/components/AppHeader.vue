@@ -38,9 +38,9 @@ export default {
                         </div>
                 </div>
                 <div class="col-8">
-                    <!-- <div class="ricerca">
-                        Prova
-                    </div> -->
+                    <div class="ricerca d-flex align-items-center justify-content-center">
+                        Gli input ricerca andranno qui
+                    </div>
                 </div>
 
                 <!-- Pulsante venditore -->
@@ -67,10 +67,14 @@ header {
 
     .ricerca {
         width: 100%;
-        background-color: red;
+        // border: solid black 2px;
         border-radius: 30px;
         height: 60px;
-
+        position: fixed; /* Imposta la posizione fissa */
+    top: 0; /* Fissa l'header all'inizio della finestra del browser */
+    width: 50vw; /* Imposta la larghezza del 100% */
+    z-index: 1000;
+    background-color: white;
     }
 }
 </style>

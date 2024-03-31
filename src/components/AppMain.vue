@@ -1,69 +1,73 @@
-  <script>
-  export default {
-    data() {
-      return {
-        activeImage: 0,
-        slides: [
-          { image: '/slide-1.jpg' },
-          { image: '/slide-2.jpg' },
-          { image: '/slide-3.jpg' },
-          { image: '/slide-4.jpg' },
-          { image: '/slide-5.webp' },
-        ]
-      };
-    },
-    methods: {
-      nextImg() {
-        if (this.activeImage === this.slides.length - 1) {
-          this.activeImage = 0;
-        } else {
-          this.activeImage++;
-        }
-      },
-      prevImg() {
-        if (this.activeImage === 0) {
-          this.activeImage = this.slides.length - 1;
-        } else {
-          this.activeImage--;
-        }
-      },
-      setImg(index) {
-        this.activeImage = index;
-      },
-      startAutoPlay() {
-        setInterval(() => {
-          this.nextImg();
-        }, 3000);
+<script>
+import AppCard from './AppCard.vue';
+
+export default {
+  components: {
+    AppCard,
+  },
+
+  data() {
+    return {
+      activeImage: 0,
+      // img che prende
+      slides: [
+        { image: '/slide-1.jpg' },
+        { image: '/slide-2.jpg' },
+        { image: '/slide-3.jpg' },
+        { image: '/slide-4.jpg' },
+        { image: '/slide-5.webp' },
+      ]
+    };
+  },
+  methods: {
+    // manda la foto avanti di 1 ma se al max torno a 0
+    nextImg() {
+      if (this.activeImage === this.slides.length - 1) {
+        this.activeImage = 0;
+      } else {
+        this.activeImage++;
       }
     },
-    created() {
-      this.startAutoPlay();
+    setImg(index) {
+      this.activeImage = index;
+    },
+    // Funzione per cambiare ogni TOT tempo il carosello
+    startAutoPlay() {
+      setInterval(() => {
+        this.nextImg();
+      }, 3000);
     }
-  };
-  </script>
+  },
+  created() {
+    // Start del carosello
+    this.startAutoPlay();
+  }
+};
+</script>
 <template>
-<div class="relative">
+  <div class="relative">
     <div class="carousel">
-      <img v-for="(slide, index) in slides" 
-           :src="slide.image" 
-           :key="index" 
-           @click="setImg(index)" 
-           :class="{ active: index === activeImage }" 
-           class="sfondo" 
-           :style="{ display: index === activeImage ? 'block' : 'none' }" 
-           alt="slider" />
+      <img v-for="(slide, index) in slides" :src="slide.image" :key="index" @click="setImg(index)"
+        :class="{ active: index === activeImage }" class="sfondo"
+        :style="{ display: index === activeImage ? 'block' : 'none' }" alt="slider" />
     </div>
-</div>
-  
-    <!-- Contenuto -->
-    <div class="container">
-      <div class="row">
-      </div>
+  </div>
+
+  <!-- Contenuto -->
+  <div class="container">
+    <div class="row">
+      <h1 class="col-12 text-center mt-5">Le nostre case disponibili</h1>
+
+      <!-- Liste card -->
+      <!-- <AppCard v-for="card, index in store.ListaAppartamenti" :key="index" :card="card" /> -->
     </div>
-  </template>
-  
-  
-  <style scoped>
+  </div>
+</template>
+
+
+<style lang="scss" scoped>
+@use "../style/general.scss";
+
 .relative {
   position: relative;
 }
@@ -75,13 +79,12 @@
 
 .carousel img {
   width: 100%;
-  height: calc(100vh - 81px); /* Dimensioni delle immagini */
+  height: calc(100vh - 81px);
   object-fit: cover;
   object-position: center;
 }
 
 .carousel img:not(.active) {
-  display: none; /* Nascondi le immagini non attive */
+  display: none;
 }
-  </style>
-  
+</style>
