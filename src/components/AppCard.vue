@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-    <div class="col-3 my-3">
+    <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 my-3">
     <div class="card">
         <!-- Usa :src per il binding dinamico dell'attributo src e :alt per l'alt -->
         <!-- Nota l'uso della notazione punto per accedere alle proprietà dell'oggetto card -->
