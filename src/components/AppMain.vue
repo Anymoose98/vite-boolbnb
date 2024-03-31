@@ -56,8 +56,8 @@ export default {
     // Effettua la chiamata per recuperare gli appartamenti
     console.log("prova")
     axios.get('http://127.0.0.1:8000/api/apartments').then((response) => {
-      console.log(response)
       this.ListaAppartamenti = response.data.results;
+      console.log(this.ListaAppartamenti)
     })},
   }
 
@@ -74,10 +74,10 @@ export default {
   <!-- Contenuto -->
   <div class="container">
     <div class="row">
-      <h1 class="col-12 text-center mt-5">Le nostre case disponibili</h1>
-      <!-- Prova -->
+      <h1 class="col-12 text-center my-5">Le nostre case disponibili</h1>
+
       <!-- Liste card -->
-      <AppCard v-for="card, index in store.ListaAppartamenti" :key="index" :card="card" />
+      <AppCard v-for="card, index in this.ListaAppartamenti" :key="index" :card="card" />
     </div>
   </div>
 </template>
