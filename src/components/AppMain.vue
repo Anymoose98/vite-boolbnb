@@ -4,13 +4,14 @@ import axios from 'axios';
 import AppCard from './AppCard.vue';
 
 export default {
+  name: 'AppMain', // Cambiato nome per evitare confusione
   components: {
-    store,
     AppCard,
   },
 
   data() {
     return {
+      store,
       ListaAppartamenti: [],
 
       activeImage: 0,
@@ -76,7 +77,7 @@ export default {
       <h1 class="col-12 text-center mt-5">Le nostre case disponibili</h1>
 
       <!-- Liste card -->
-      <!-- <AppCard v-for="card, index in store.ListaAppartamenti" :key="index" :card="card" /> -->
+      <AppCard v-for="card, index in store.ListaAppartamenti" :key="index" :card="card" />
     </div>
   </div>
 </template>
