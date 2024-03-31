@@ -67,14 +67,9 @@ header {
 
     .ricerca {
         width: 100%;
-        // border: solid black 2px;
+        border: solid black 2px;
         border-radius: 30px;
         height: 60px;
-        position: fixed; /* Imposta la posizione fissa */
-    top: 0; /* Fissa l'header all'inizio della finestra del browser */
-    width: 50vw; /* Imposta la larghezza del 100% */
-    z-index: 1000;
-    background-color: white;
     }
 }
 </style>
