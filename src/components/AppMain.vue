@@ -56,7 +56,7 @@ export default {
     // Effettua la chiamata per recuperare gli appartamenti
     console.log("prova")
     axios.get('http://127.0.0.1:8000/api/apartments').then((response) => {
-      // console.log(response)
+      console.log(response)
       this.ListaAppartamenti = response.data.results;
     })},
   }
