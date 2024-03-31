@@ -15,7 +15,7 @@ export default {
 <template lang="">
   <AppHeader />
   <AppMain />
-  <router-view></router-view>
+  <!-- <router-view></router-view> -->
   <AppFooter />
 </template>
 <style lang="scss">

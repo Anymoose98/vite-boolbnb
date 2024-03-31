@@ -1,24 +1,30 @@
 <script>
+import { store } from '../store'
+import axios from 'axios';
 import AppCard from './AppCard.vue';
 
 export default {
   components: {
+    store,
     AppCard,
   },
 
   data() {
     return {
+      ListaAppartamenti: [],
+
       activeImage: 0,
-      // img che prende
+      // img che prende il carosello
       slides: [
         { image: '/slide-1.jpg' },
         { image: '/slide-2.jpg' },
         { image: '/slide-3.jpg' },
         { image: '/slide-4.jpg' },
         { image: '/slide-5.webp' },
-      ]
+      ],
     };
   },
+
   methods: {
     // manda la foto avanti di 1 ma se al max torno a 0
     nextImg() {
@@ -31,18 +37,29 @@ export default {
     setImg(index) {
       this.activeImage = index;
     },
+
     // Funzione per cambiare ogni TOT tempo il carosello
     startAutoPlay() {
       setInterval(() => {
         this.nextImg();
       }, 3000);
-    }
+    },
+
+
+
   },
   created() {
     // Start del carosello
     this.startAutoPlay();
+
+    // Effettua la chiamata per recuperare gli appartamenti
+    console.log("prova")
+    axios.get('http://127.0.0.1:8000/api/apartments').then((response) => {
+      // console.log(response)
+      this.ListaAppartamenti = response.data.results;
+    })},
   }
-};
+
 </script>
 <template>
   <div class="relative">

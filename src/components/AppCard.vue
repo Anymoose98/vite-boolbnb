@@ -11,10 +11,10 @@ export default {
 
 
 <template lang="">
-    <div class="card">
-    <img src="" class="card-img-top" alt="">
+    <!-- <div class="card">
+    <img :src="{{ card->image}}" class="card-img-top" :alt="{{card->title}}">
     <div class="card-body">
-        <h5 class="card-title">Nome casa</h5>
+        <h5 class="card-title">{{ card->description}}</h5>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">Zona casa</li>
@@ -22,7 +22,7 @@ export default {
     <div class="card-body">
         <a href="#" class="card-link">Clicca qui per maggiori informazioni</a>
     </div>
-    </div>
+    </div> -->
 </template>
 
 <style lang="scss"></style>
