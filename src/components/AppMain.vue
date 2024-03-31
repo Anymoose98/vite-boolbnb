@@ -75,7 +75,7 @@ export default {
   <div class="container">
     <div class="row">
       <h1 class="col-12 text-center mt-5">Le nostre case disponibili</h1>
-
+      <!-- Prova -->
       <!-- Liste card -->
       <AppCard v-for="card, index in store.ListaAppartamenti" :key="index" :card="card" />
     </div>
